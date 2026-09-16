@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Yanlin Chen — robotics researcher working on robotic mechanisms, multimodal robots, parallel mechanisms, dynamics and control.">
+  <meta property="og:title" content="Yanlin Chen | Robotics Researcher">
+  <meta property="og:description" content="Research, publications and projects in robotic mechanisms and intelligent systems.">
+  <title>Yanlin Chen | Robotics Researcher</title>
+  <link rel="icon" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="monogram" href="#top" aria-label="Home">YC<span>.</span></a>
+    <nav aria-label="Main navigation">
+      <a href="#about">About</a><a href="#research">Research</a><a href="#publications">Publications</a><a href="#experience">Experience</a>
+    </nav>
+    <button id="themeToggle" class="icon-button" aria-label="Toggle dark mode">◐</button>
+  </header>
+
+  <main id="top">
+    <section class="hero shell">
+      <div class="hero-copy">
+        <p class="kicker">ROBOTICS · PARALLEL MECHANISMS · INTELLIGENT SYSTEMS</p>
+        <h1>Yanlin<br><span>Chen.</span></h1>
+        <p class="lead">Postdoctoral researcher at The Chinese University of Hong Kong, developing agile, precise and mechanically intelligent robotic systems.</p>
+        <div class="links">
+          <a class="button" href="mailto:421476576@qq.com">Get in touch ↗</a>
+          <a href="https://scholar.google.com/citations?user=wMN9NfcAAAAJ&hl=en&oi=sra" target="_blank" rel="noreferrer">Google Scholar ↗</a>
+          <a href="https://xueshu.baidu.com/scholarID/CN-B8O0CTCK" target="_blank" rel="noreferrer">Baidu Scholar ↗</a>
+        </div>
+      </div>
+      <div class="portrait-block">
+        <div class="portrait-frame"><img src="assets/yanlin-chen.jpg" alt="Portrait of Yanlin Chen"></div>
+        <p><i></i> Currently at CUHK</p>
+      </div>
+    </section>
+
+    <section id="about" class="section shell split">
+      <div><p class="section-number">01 / ABOUT</p><h2>Mechanics and intelligence, designed as one system.</h2></div>
+      <div class="body-copy">
+        <p>I received my Ph.D. in Mechanical Engineering from South China University of Technology and am now a postdoctoral researcher at The Chinese University of Hong Kong and the Medical Robotics Innovation Technology Centre.</p>
+        <p>My work spans cable-driven and anthropomorphic manipulators, multimodal hopping robots, parallel mechanisms, soft robots, medical robotics, system identification and intelligent control.</p>
+        <div class="stats"><div><strong>7</strong><span>Granted invention patents</span></div><div><strong>10+</strong><span>Robotic systems built</span></div><div><strong>2016—</strong><span>Robotics R&amp;D</span></div></div>
+      </div>
+    </section>
+
+    <section id="research" class="section research">
+      <div class="shell"><p class="section-number light">02 / RESEARCH</p><h2>From mechanism to machine</h2>
+        <div class="cards">
+          <article><span>01</span><h3>Multimodal hopping robots</h3><p>Propeller-assisted hopping, flight, wheeled locomotion and mobile manipulation.</p></article>
+          <article><span>02</span><h3>Cable-driven manipulators</h3><p>Mechanism design, stiffness, error modeling, dynamics and control.</p></article>
+          <article><span>03</span><h3>Medical and field robotics</h3><p>Parallel mechanisms, integrated tools, soft robots and surgical systems.</p></article>
+          <article><span>04</span><h3>Robot intelligence</h3><p>Parameter identification, adaptive compensation, perception and autonomous operation.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications" class="section shell">
+      <div class="publication-heading"><div><p class="section-number">03 / PUBLICATIONS</p><h2>Research output</h2></div><label>Sort by year <select id="sortYear"><option value="desc">Newest first</option><option value="asc">Oldest first</option></select></label></div>
+      <div id="publishedList" class="publication-list"></div>
+      <button id="showMore" class="show-more">Show all publications ↓</button>
+      <div class="under-review"><div class="review-title"><h3>Manuscripts under review</h3><span id="reviewCount"></span></div><div id="reviewList" class="publication-list compact"></div></div>
+    </section>
+
+    <section id="experience" class="section shell">
+      <p class="section-number">04 / EXPERIENCE</p><h2>Experience &amp; education</h2>
+      <div class="timeline">
+        <article><time>2024 — Present</time><div><h3>Postdoctoral Researcher</h3><p>The Chinese University of Hong Kong · Medical Robotics Innovation Technology Centre</p></div></article>
+        <article><time>2020 — 2024</time><div><h3>Ph.D. in Mechanical Engineering</h3><p>South China University of Technology</p></div></article>
+        <article><time>2017 — 2020</time><div><h3>M.Eng. in Mechanical Engineering</h3><p>South China University of Technology</p></div></article>
+        <article><time>2013 — 2017</time><div><h3>B.Eng. in Mechatronic Engineering</h3><p>South China University of Technology · GPA 3.73/4.0 · Rank 7/106</p></div></article>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="shell"><p>Open to conversations on robotic mechanisms, systems and control.</p><a href="mailto:421476576@qq.com">421476576@qq.com ↗</a><span>© 2026 Yanlin Chen</span></div></footer>
+  <script src="script.js"></script>
+</body>
+</html>
