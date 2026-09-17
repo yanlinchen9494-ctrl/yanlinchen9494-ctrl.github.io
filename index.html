@@ -13,10 +13,12 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    .name-zh,.copyright-zh{display:none}
-    html[lang="zh-CN"] .name-en,html[lang="zh-CN"] .copyright-en{display:none}
-    html[lang="zh-CN"] .name-zh,html[lang="zh-CN"] .copyright-zh{display:inline}
-    .hero h1 .name-first{color:inherit}
+    .hero-name-zh,.copyright-zh{display:none}
+    html[lang="zh-CN"] .hero-name-en,html[lang="zh-CN"] .copyright-en{display:none}
+    html[lang="zh-CN"] .hero-name-zh,html[lang="zh-CN"] .copyright-zh{display:block}
+    .hero-name-zh{white-space:nowrap;font-size:clamp(64px,9vw,120px)!important;line-height:.95!important;letter-spacing:-.08em!important}
+    .hero-name-zh .surname{color:inherit}
+    @media(max-width:520px){.hero-name-zh{font-size:64px!important}}
   </style>
 </head>
 <body>
@@ -32,7 +34,8 @@
     <section class="hero shell">
       <div class="hero-copy">
         <p class="kicker">ROBOTICS · PARALLEL MECHANISMS · INTELLIGENT SYSTEMS</p>
-        <h1><span class="name-en name-first">Yanlin</span><span class="name-zh name-first">陈</span><br><span class="name-en">Chen.</span><span class="name-zh">彦霖</span></h1>
+        <h1 class="hero-name-en">Yanlin<br><span>Chen.</span></h1>
+        <h1 class="hero-name-zh"><span class="surname">陈</span><span>彦霖</span></h1>
         <p class="lead" data-i18n="heroLead">Postdoctoral researcher at The Chinese University of Hong Kong, developing agile, precise and mechanically intelligent robotic systems.</p>
         <div class="links">
           <a class="button" href="mailto:yanlinchen9494@gmail.com" data-i18n="contact">Get in touch ↗</a>
