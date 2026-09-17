@@ -12,6 +12,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    .name-zh,.copyright-zh{display:none}
+    html[lang="zh-CN"] .name-en,html[lang="zh-CN"] .copyright-en{display:none}
+    html[lang="zh-CN"] .name-zh,html[lang="zh-CN"] .copyright-zh{display:inline}
+    .hero h1 .name-first{color:inherit}
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -26,7 +32,7 @@
     <section class="hero shell">
       <div class="hero-copy">
         <p class="kicker">ROBOTICS · PARALLEL MECHANISMS · INTELLIGENT SYSTEMS</p>
-        <h1>Yanlin<br><span>Chen.</span></h1>
+        <h1><span class="name-en name-first">Yanlin</span><span class="name-zh name-first">陈</span><br><span class="name-en">Chen.</span><span class="name-zh">彦霖</span></h1>
         <p class="lead" data-i18n="heroLead">Postdoctoral researcher at The Chinese University of Hong Kong, developing agile, precise and mechanically intelligent robotic systems.</p>
         <div class="links">
           <a class="button" href="mailto:yanlinchen9494@gmail.com" data-i18n="contact">Get in touch ↗</a>
@@ -78,7 +84,7 @@
     </section>
   </main>
 
-  <footer><div class="shell"><p data-i18n="footerText">Open to conversations on robotic mechanisms, systems and control.</p><a href="mailto:yanlinchen9494@gmail.com">yanlinchen9494@gmail.com ↗</a><span>© 2026 Yanlin Chen</span></div></footer>
+  <footer><div class="shell"><p data-i18n="footerText">Open to conversations on robotic mechanisms, systems and control.</p><a href="mailto:yanlinchen9494@gmail.com">yanlinchen9494@gmail.com ↗</a><span><span class="copyright-en">© 2026 Yanlin Chen</span><span class="copyright-zh">© 2026 陈彦霖</span></span></div></footer>
   <script src="script.js"></script>
 </body>
 </html>
