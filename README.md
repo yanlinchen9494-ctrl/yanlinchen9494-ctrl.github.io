@@ -14,7 +14,9 @@ A lightweight academic homepage designed for GitHub Pages. It uses plain HTML, C
 ## Edit
 
 - Personal text and page sections: `index.html`
+- Bilingual profile and research-area descriptions: `profile.js`
 - Publications and sorting: `script.js`
+- Granted patents: the `patents` list in `script.js`
 - Colors, spacing and responsive layout: `style.css`
 - Portrait and favicon: `assets/`
 
