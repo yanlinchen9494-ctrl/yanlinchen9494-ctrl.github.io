@@ -20,18 +20,6 @@ const publications = [
   [2019,"IFToMM","Design and Analysis of a Series Elastic Component Based on Topology Optimization","Yanjiang Huang, Y. Wang, Yanlin Chen, et al.","Advances in Mechanism and Machine Science, pp. 2129–2138","https://scholar.google.com/scholar?q=Design+and+Analysis+of+a+Series+Elastic+Component+Based+on+Topology+Optimization"],
   [2018,"ROBIO","Estimation of Human Arm Motion Based on sEMG in Human-Robot Cooperative Manipulation","Yanjiang Huang, K. Chen, K. Wang, Yanlin Chen, Xianmin Zhang","IEEE International Conference on Robotics and Biomimetics, pp. 1771–1776","https://scholar.google.com/scholar?q=Estimation+of+human+arm+motion+based+on+sEMG+in+human-robot+cooperative+manipulation"]
 ];
-const reviews = [
-  ["T-MECH","A Static Model of Cable-Driven Manipulators Considering Cable Bending Rigidity and Pulley Friction for Tension Feedback Estimation","D. Lin, Yanjiang Huang, Yanlin Chen, et al.","Major revision"],
-  ["MMT","Global Identification of Robot Dynamic Parameters with LuGre Friction Model under a Dual-Excitation Alternating Iterative Identification Framework","Yanjiang Huang, Z. Cai, Yanlin Chen, et al.","Major revision"],
-  ["NATURE COMM.","Propeller-Based Appendage for Enhanced Body Reorientation Improves Legged Robot’s Landing","Xiangyu Chu, Chun Yin Fan, Yanlin Chen, et al.","Under review"],
-  ["AUTON. ROBOTS","Six-Degree-of-Freedom Pose Prediction for Autonomous Robotic Catching Using Parallel LSTM–TCN and Trend-Filtering Transformers","Yanjiang Huang, Z. Wang, Qinlin Tan, Yanlin Chen","Under review"],
-  ["AIS","Mobile 3D Printing with Legged Robots for Ground Repair Using Computational Planning","Xiangyu Chu, Z. Zhang, Yanlin Chen, et al.","Under review"],
-  ["RA-L","Learning to Hop for a Single-Legged Robot with Parallel Mechanism","Hongbo Zhang, Yanlin Chen, Xiangyu Chu, et al.","Under review · arXiv:2501.11945"],
-  ["ROBOTICA","Singular and Interference Analysis with Workspace Optimization for a Spherical Parallel Mechanism","X. Deng, Yanlin Chen, Yanjiang Huang, Xianmin Zhang","Under review"],
-  ["RAS","A Novel Variable Stiffness Actuator for Physical Human–Robot Interaction","Y. Lu, Yanjiang Huang, Yanlin Chen, et al.","Under review"],
-  ["MANUSCRIPT","Dynamics Modeling of the Robot Incorporating the OVSA and Variable Stiffness Impedance Control Based on Human-Robot Interaction","Y. Lu, Yanjiang Huang, Yanlin Chen, et al.","Under review"],
-  ["T-MECH","Markerless DLO Tracking in Dual-Arm Manipulation: A Predictive Observer Driven by Neural Jacobian Priors","","Under review"]
-];
 const patents = [
   ["CN110202559B","一种面向人机协作仿生轻量化机械臂","Bioinspired lightweight manipulator for human–robot collaboration"],
   ["CN111331583B","一种齿轮带轮复合式三自由度球面并联机构传动装置","Gear–pulley transmission for a three-DoF spherical parallel mechanism"],
@@ -49,15 +37,13 @@ Object.assign(translations.en, profileCopy.en);
 Object.assign(translations.zh, profileCopy.zh);
 let expanded=false,lang=localStorage.getItem('lang')==='zh'?'zh':'en';
 function escapeHtml(value){return String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
-function localizedStatus(status){return lang==='zh'?status.replace('Major revision','大修中').replace('Under review','审稿中').replace('Revision','修订中'):status;}
-function row(p,review=false){
-  const status=lang==='zh'?'投稿中':'In review';
-  const [year,tag,title,authors,venue,href]=review?[status,...p,"https://scholar.google.com/scholar?q="+encodeURIComponent(p[1])]:p;
-  return `<a class="publication" href="${escapeHtml(href)}" target="_blank" rel="noreferrer"><div class="pub-year">${escapeHtml(year)}</div><div class="pub-tag">${escapeHtml(tag)}</div><div class="pub-main"><h3>${escapeHtml(title)}</h3>${authors?`<p>${escapeHtml(authors)}</p>`:''}<span>${escapeHtml(review?localizedStatus(venue):venue)}</span></div><div class="pub-arrow">↗</div></a>`;
+function row(p){
+  const [year,tag,title,authors,venue,href]=p;
+  return `<a class="publication" href="${escapeHtml(href)}" target="_blank" rel="noreferrer"><div class="pub-year">${escapeHtml(year)}</div><div class="pub-tag">${escapeHtml(tag)}</div><div class="pub-main"><h3>${escapeHtml(title)}</h3>${authors?`<p>${escapeHtml(authors)}</p>`:''}<span>${escapeHtml(venue)}</span></div><div class="pub-arrow">↗</div></a>`;
 }
 function renderPatents(){
   document.querySelector('#patentList').innerHTML=patents.map(([id,zh,en])=>`<a class="patent" href="https://patents.google.com/patent/${id}/zh" target="_blank" rel="noreferrer"><div class="patent-id">${id}<span>${translations[lang].granted}</span></div><h3>${escapeHtml(lang==='zh'?zh:en)}</h3><span class="pub-arrow">↗</span></a>`).join('');
 }
-function render(){const asc=document.querySelector('#sortYear').value==='asc';const sorted=[...publications].sort((a,b)=>asc?a[0]-b[0]:b[0]-a[0]);document.querySelector('#publishedList').innerHTML=(expanded?sorted:sorted.slice(0,7)).map(p=>row(p)).join('');document.querySelector('#reviewList').innerHTML=reviews.map(p=>row(p,true)).join('');document.querySelector('#showMore').textContent=expanded?(lang==='zh'?'收起 ↑':'Show fewer publications ↑'):(lang==='zh'?`显示全部 ${publications.length} 篇论文 ↓`:`Show all ${publications.length} publications ↓`);renderPatents();}
+function render(){const asc=document.querySelector('#sortYear').value==='asc';const sorted=[...publications].sort((a,b)=>asc?a[0]-b[0]:b[0]-a[0]);document.querySelector('#publishedList').innerHTML=(expanded?sorted:sorted.slice(0,7)).map(p=>row(p)).join('');document.querySelector('#showMore').textContent=expanded?(lang==='zh'?'收起 ↑':'Show fewer publications ↑'):(lang==='zh'?`显示全部 ${publications.length} 篇论文 ↓`:`Show all ${publications.length} publications ↓`);renderPatents();}
 function applyLanguage(){document.documentElement.lang=lang==='zh'?'zh-CN':'en';document.querySelectorAll('[data-i18n]').forEach(el=>{const key=el.dataset.i18n;if(translations[lang][key])el.textContent=translations[lang][key]});document.querySelector('#langToggle').textContent=lang==='zh'?'EN':'中文';document.querySelector('#langToggle').setAttribute('aria-label',lang==='zh'?'Switch to English':'切换为中文');document.title=lang==='zh'?'陈彦霖 | 机器人研究':'Yanlin Chen | Robotics Researcher';document.querySelector('meta[name="description"]').content=translations[lang].pageDescription;localStorage.setItem('lang',lang);render();}
-document.querySelector('#sortYear').addEventListener('change',render);document.querySelector('#showMore').addEventListener('click',()=>{expanded=!expanded;render()});document.querySelector('#reviewCount').textContent=reviews.length;document.querySelector('#themeToggle').addEventListener('click',()=>document.documentElement.classList.toggle('dark'));document.querySelector('#langToggle').addEventListener('click',()=>{lang=lang==='en'?'zh':'en';applyLanguage()});applyLanguage();
+document.querySelector('#sortYear').addEventListener('change',render);document.querySelector('#showMore').addEventListener('click',()=>{expanded=!expanded;render()});document.querySelector('#themeToggle').addEventListener('click',()=>document.documentElement.classList.toggle('dark'));document.querySelector('#langToggle').addEventListener('click',()=>{lang=lang==='en'?'zh':'en';applyLanguage()});applyLanguage();
